@@ -1,0 +1,25 @@
+@charset "UTF-8";
+body{
+   text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+	height: 100px;
+}
+
+#ball{
+   flort: left;
+   width: 100px;
+   height: 100px;
+   margin: 0px;
+}
+h{
+   font-size: 70px;
+    color: yellow;
+   -webkit-text-stroke: 2px red;
+   text-stroke: 2px red;
+   vertical-align: top;
+}

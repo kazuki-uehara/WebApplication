@@ -1,0 +1,54 @@
+
+body{
+   text-align:  center;
+}
+
+#ball{
+   flort: left;
+   width: 100px;
+   height: 100px;
+   margin: 0px;
+}
+form{
+   display: inline-block;
+   padding: 30px;
+}
+
+select{
+   font-size: 20px;
+}
+
+
+h{
+   font-size: 70px;
+    color: yellow;
+   -webkit-text-stroke: 2px red;
+   text-stroke: 2px red;
+   vertical-align: top;
+}
+td {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+	height: 250px;
+}
+
+td.a {
+	margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+	height: 250px
+}
+td.b{
+  font-size: 40px;
+}
+
+img{
+   vertical-align: top;
+   width: 200px;
+   height: 300px;
+}
+
+.profile{
+   font-size: 30px;
+}

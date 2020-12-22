@@ -1,0 +1,44 @@
+.title{
+text-align: center;
+}
+#ball{
+   flort: left;
+   width: 100px;
+   height: 100px;
+   margin: 0px;
+}
+h{
+   font-size: 70px;
+    color: yellow;
+   -webkit-text-stroke: 2px red;
+   text-stroke: 2px red;
+   vertical-align: top;
+}
+
+form{
+  background-color: #eaeaea;
+  padding:30px 50px;
+}
+
+form dl dt{
+  text-align:right;
+  width: 50%;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
+
+form dl dd{
+  padding:10px 0;
+}
+
+.button{
+   padding: 30px;
+   text-align: center;
+}
+input{
+   color:blue;
+}
+.back{
+   text-align: center;
+}
