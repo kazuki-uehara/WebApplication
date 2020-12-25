@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,28 +12,23 @@
 <title>島連BBC</title>
 </head>
   <body>
-     <img class="logo" src="images/image1.jpeg">
+  <img class="logo" src="images/image1.jpeg">
        <h>島連ＢＢＣ</h>
      <img class="logo" src="images/image1.jpeg">
-       <p>
-       島連ＢＢＣは沖縄県南部を中心に活動している草野球チームです。<br>
-       メンバーは東風平中学校出身のメンバーが中心となっております。
-       </p>
-    <div class="sliderarea">
+  <p>${fn:escapeXml(main)}</p>
+
+  <div class="sliderarea">
       <div class="slide">
-      <img src="images/image0.jpeg">
-      <img src="images/image2.jpeg">
-      <img src="images/image3.jpeg">
-      <img src="images/image6.jpeg">
-      <img src="images/image9.jpeg">
+      <c:forEach var="main_photo" items="${main_photo}">
+      <img src=${fn:escapeXml(main_photo.slider_photo)}>
+      </c:forEach>
       </div>
-    </div>
-    <form action="pages" method="get">
-        <button type="submit" name="page" value="member">選手紹介</button>
-        <button type="submit" name="page" value="albam">写真・動画</button>
-	</form>
-	<div>
-    <a href="Check.jsp" class="member">メンバーログイン</a>
-    </div>
+      </div>
+
+    <form:form action="pages" modelAttribute="view">
+        <form:button name="member">選手一覧</form:button>
+        <form:button name="album">アルバム一覧</form:button><br>
+        <form:button name="login">メンバーログイン</form:button>
+	</form:form>
   </body>
  </html>

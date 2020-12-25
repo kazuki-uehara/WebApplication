@@ -1,45 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="CSS/login.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
 <meta charset="UTF-8">
 <title>メンバーページ</title>
 </head>
 <body>
- <img src="images/ball.png" id="ball">
-        <h>ログインページ</h>
-      <dl id="nav">
-        <dt>トップページ編集</dt>
-          <dd><form id="top">
-            <p>紹介文<br>
-            <textarea name="紹介文"
-             placeholder="島連ＢＢＣは沖縄県南部を中心に活動している草野球チームです。メンバーは東風平中学校出身のメンバーが中心となっております。"></textarea></p>
-            <p>スライドショー画像<br>
-            <label>画像ファイルの添付</label>
-            <input type="file" name="slider" multiple="mlutiple"><br>
+	<p>こんにちは${fn:escapeXml(user)}さん</p>
+	<h>ログインページ</h>
+	<dl id="nav">
+		<dt>トップページ編集</dt>
+		<dd>
+			<form:form action="update" modelAttribute="view">
+				<p>紹介文更新</p>
+				<br>
+				<form:textarea path="introduction" placeholder="新しい紹介文を入力してください"></form:textarea>
+				<br>
+				<form:button name="button">紹介文更新</form:button>
+
+    			スライドショーの画像を更新します。
+    			<input type="file" name="slider" multiple="mlutiple"><br>
             <input type="submit" value="更新する">
-          </form></dd>
-     </dl>
-       <div>
-          <form action="Login" method="get">
-        <button type="submit" name="page" value="member">プロフィール編集</button>
-        </form>
-       </div>
-       <div>
-          <form action="Login" method="get">
-        <button type="submit" name="page" value="albam">写真・動画編集</button>
-        </form>
-        </div>
-     <script>
-      $(function(){
-        $("#nav dt").on("click",function(){
-          $(this).next().slideToggle();
-        });
-      });
-    </script>
-   <a href="main.jsp">トップページに戻る</a>
+			</form:form>
+		</dd>
+	</dl>
+	<div>
+		<form:form action="update" modelAttribute="view">
+			<form:button name="member">選手更新</form:button>
+		</form:form>
+	</div>
+	<div>
+		<form:form action="update" modelAttribute="view">
+			<form:button name="album">アルバム更新</form:button>
+		</form:form>
+	</div>
+	<div>
+		<form:form action="update" modelAttribute="view">
+			<form:button name="user">管理者追加</form:button>
+		</form:form>
+	</div>
+	<script>
+		$(function() {
+			$("#nav dt").on("click", function() {
+				$(this).next().slideToggle();
+			});
+		});
+	</script>
 </body>
 </html>

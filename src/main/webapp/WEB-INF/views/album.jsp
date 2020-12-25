@@ -12,21 +12,20 @@
 </head>
 <body>
 <img src="images/ball.png" id="ball">
-         <h>写真・動画</h>
-       <table border="1">
-	<c:forEach var="match" items="${Match}">
-			<tr>
-			<td>${fn:escapeXml(match.match_Day)}</td>
-			<td>${fn:escapeXml(match.result)}</td>
-			<td>${fn:escapeXml(match.team_Name)}</td>
-			</tr>
-			<tr>
-			<td>${fn:escapeXml(match.pass)}</td>
-			</tr>
-
-			</c:forEach>
-			</table>
-
-       <a href=main.jsp>トップページに戻る</a>
+         <p>写真・動画</p>
+<table border="1">
+      <c:forEach items="${matchlist}" var="match_date">
+        <tr>
+          <td>${fn:escapeXml(match_date.match_day)}</td>
+          <td>${fn:escapeXml(match_date.result)}</td>
+          <td>${fn:escapeXml(match_date.opponent_team)}</td>
+        </tr>
+        </c:forEach>
+        <c:forEach items="${albumlist}" var="album">
+        <tr>
+        <td>${fn:escapeXml(album.album_date)}</td>
+        </tr>
+        </c:forEach>
+  </table>
 </body>
 </html>
