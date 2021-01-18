@@ -25,10 +25,16 @@
 				<form:textarea path="introduction" placeholder="新しい紹介文を入力してください"></form:textarea>
 				<br>
 				<form:button name="button">紹介文更新</form:button>
-
-    			スライドショーの画像を更新します。
-    			<input type="file" name="slider" multiple="mlutiple"><br>
-            <input type="submit" value="更新する">
+				<br>
+			</form:form>
+			<form:form action="update" modelAttribute="view"
+				enctype="multipart/form-data">
+				<form method="POST" enctype="multipart/form-data"
+					action="../UploadServlet">
+					<p>スライドショー画像の更新</p>
+					<input type="file" name="file" multiple="multiple" accept="image/*" /><br />
+					<form:button name="photo">画像更新</form:button>
+				</form>
 			</form:form>
 		</dd>
 	</dl>
@@ -47,6 +53,10 @@
 			<form:button name="user">管理者追加</form:button>
 		</form:form>
 	</div>
+	<c:url value="/main" var="url" />
+	<p>
+		<a href="${url}">ログアウト</a>
+	</p>
 	<script>
 		$(function() {
 			$("#nav dt").on("click", function() {
@@ -54,5 +64,7 @@
 			});
 		});
 	</script>
+
+
 </body>
 </html>

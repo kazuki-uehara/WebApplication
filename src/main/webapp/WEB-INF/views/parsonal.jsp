@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,30 +17,19 @@
         <img src="images/ball.png" id="ball">
         <h>登録・変更フォーム</h>
       </div>
-      <form action="Login" method="post">
-      背番号：<input type="number" name="back_number"><br>
-      名前：<input type="text" name="name"><br>
-      ポジション： <select multiple="multiple" name="position">
-          <option value="投手">投手</option>
-          <option value="捕手">捕手</option>
-          <option value="内野手">内野手</option>
-          <option value="外野手">外野手</option>
-        </select><br>
-        投打： <select name="hand">
-          <option value="右投右打">右投右打</option>
-          <option value="右投左打">右投左打</option>
-          <option value="右投両打">右投両打</option>
-          <option value="左投左打">左投左打</option>
-          <option value="左投左打">左投左打</option>
-          <option value="左投両打">左投両打</option>
-        </select><br>
-        ひとこと：<input type="text" name="comment"><br>
-        <label>プロフィール写真:
-            <input type="file" name="photo" multiple="multiple"></label><br>
-        <button type="submit" name="button" value="insert_member">登録</button>
-      </form>
-        <form action="Login" method="get">
-        <button type="submit" name="page" value="member">プロフィール編集に戻る</button>
-        </form>
+      <form:form action="new_member"  modelAttribute="view" enctype="multipart/form-data">
+      名前：<form:input path="name"/><form:errors path="name" cssStyle="color: red"/><br>
+      背番号：<form:input type="back_number" path="back_number"/><form:errors path="back_number" cssStyle="color: red"/><br>
+      ポジション：<form:select path="position" items="${position}" multiple="false" /><form:errors path="position" cssStyle="color: red"/><br>
+      投打：<form:select path="hand" items="${hand}" multiple="false" /><form:errors path="hand" cssStyle="color: red"/><br>
+	  ひとこと：<form:textarea path="comment"/><form:errors path="comment" cssStyle="color: red"/><br>
+	  プロフィール写真：<form:input type="file" path="profile_photo" accept="image/*" /><form:errors path="profile_photo" cssStyle="color: red"/><br />
+
+					<form:button name="member">登録する</form:button>
+      </form:form>
+      <c:url value="/login" var="url" />
+	<p>
+		<a href="${url}">編集トップページに戻る</a>
+	</p>
 </body>
 </html>

@@ -15,6 +15,9 @@ h{
    text-stroke: 2px red;
    vertical-align: top;
 }
+p{
+	font-size: 20px;
+}
 #nav dt{
    font-size: 30px;
    display: block;
@@ -68,4 +71,65 @@ div{
 textarea{
    width: 300px;
    height: 100px;
+}
+button#member {
+   display       : inline-block;
+   border-radius : 5%;
+   font-size     : 18pt;
+   text-align    : center;
+   cursor        : pointer;
+   padding       : 12px 12px;
+   background    : red;
+   color         : #ffffff;
+   line-height   : 1em;
+   transition    : .3s;
+   box-shadow    : 6px 6px 3px #666666;
+   border        : 2px solid yellow;
+}
+button#member:hover {
+   box-shadow    : none;
+   color         : #000066;
+   background    : #ffffff;
+}
+button#album {
+   display       : inline-block;
+   border-radius : 5%;
+   font-size     : 18pt;
+   text-align    : center;
+   cursor        : pointer;
+   padding       : 12px 12px;
+   background    : red;
+   color         : #ffffff;
+   line-height   : 1em;
+   transition    : .3s;
+   box-shadow    : 6px 6px 3px #666666;
+   border        : 2px solid yellow;
+}
+button#album:hover {
+   box-shadow    : none;
+   color         : #000066;
+   background    : #ffffff;
+}
+button#user {
+   display       : inline-block;
+   border-radius : 5%;
+   font-size     : 18pt;
+   text-align    : center;
+   cursor        : pointer;
+   padding       : 12px 12px;
+   background    : red;
+   color         : #ffffff;
+   line-height   : 1em;
+   transition    : .3s;
+   box-shadow    : 6px 6px 3px #666666;
+   border        : 2px solid yellow;
+}
+button#user:hover {
+   box-shadow    : none;
+   color         : #000066;
+   background    : #ffffff;
+}
+
+button{
+	color: red;
 }

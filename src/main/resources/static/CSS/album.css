@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body{
+   text-align: center;
+}
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+	height: 100px;
+}
+
+img#ball{
+   flort: left;
+   width: 100px;
+   height: 100px;
+   margin: 0px;
+}
+h{
+   font-size: 70px;
+    color: yellow;
+   -webkit-text-stroke: 2px red;
+   text-stroke: 2px red;
+   vertical-align: top;
+}
+#nav dt{
+   font-size: 30px;
+   display: block;
+   width: 100%;
+   height: 100px;
+   line-height: 100px;
+   text-align: center;
+   border: red 3px solid;
+   cursor: pointer;
+   margin-left: auto;
+   margin-right: auto;
+}
+#nav dd{
+   background: #f2f2f2;
+   width: 100%;
+   height: 100%;
+   line-height: 50px;
+   text-align: center;
+   border: #666 3px solid;
+   display: none;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.album{
+	width: 200px;
+   height: 200px;
+   margin: 0px;
+}
+
+

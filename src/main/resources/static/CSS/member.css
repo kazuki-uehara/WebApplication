@@ -1,6 +1,5 @@
-
 body{
-   text-align:  center;
+	text-align: center;
 }
 
 #ball{
@@ -9,22 +8,23 @@ body{
    height: 100px;
    margin: 0px;
 }
-form{
-   display: inline-block;
-   padding: 30px;
-}
-
-select{
-   font-size: 20px;
-}
-
 
 h{
+	text-align:  center;
    font-size: 70px;
     color: yellow;
    -webkit-text-stroke: 2px red;
    text-stroke: 2px red;
    vertical-align: top;
+}
+
+table{
+   border: solid 3px;
+   border-collapse: collapse;
+   margin-left: auto;
+   margin-right: auto;
+
+
 }
 td {
     margin-left: auto;
@@ -41,6 +41,7 @@ td.a {
 }
 td.b{
   font-size: 40px;
+   text-align:  left;
 }
 
 img{
@@ -48,7 +49,24 @@ img{
    width: 200px;
    height: 300px;
 }
+img#ball{
+
+   padding-left: 300px;
+}
 
 .profile{
    font-size: 30px;
+    padding-left: 300px;
+}
+
+form#view{
+	display: inline-block;
+	 font-size: 40px;
+	 padding: 20px;
+	 padding-right: 230px;
+	 padding-left: 0;
+	 float: right;
+}
+button#select{
+	color: red;
 }

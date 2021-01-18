@@ -1,12 +1,6 @@
+@charset "UTF-8";
 body{
    text-align: center;
-}
-
-#ball{
-   flort: left;
-   width: 100px;
-   height: 100px;
-   margin: 0px;
 }
 h{
    font-size: 70px;
@@ -15,7 +9,22 @@ h{
    text-stroke: 2px red;
    vertical-align: top;
 }
-#acMenu dt{
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+	height: 100px;
+}
+
+img#ball{
+   flort: left;
+   width: 100px;
+   height: 100px;
+   margin: 0px;
+}
+#nav dt{
    font-size: 30px;
    display: block;
    width: 100%;
@@ -27,7 +36,7 @@ h{
    margin-left: auto;
    margin-right: auto;
 }
-#acMenu dd{
+#nav dd{
    background: #f2f2f2;
    width: 100%;
    height: 100%;
@@ -38,18 +47,25 @@ h{
    margin-left: auto;
    margin-right: auto;
 }
-#acMenu dd img{
-   width: 200px;
+
+#nav dd .album{
+	width: 200px;
    height: 200px;
-   corsor: pointer;
+   margin: 0px;
+   cursor: pointer;
 }
-#delete{
-   color: red;
+form#view{
+	display       : inline-block;
 }
-#change{
-   color: blue;
+button#delete{
+	color: red;
 }
-#none{
-   float: right;
-   color: red;
+button#select{
+	color: orange;
 }
+button#update{
+	color: blue;
+}
+
+
+
