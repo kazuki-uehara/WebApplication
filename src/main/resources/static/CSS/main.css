@@ -15,26 +15,34 @@ h{
    -webkit-text-stroke: 4px red;
    vertical-align: top;
 }
+div.introduction{
+	width: 900px;
+	margin: auto;
+}
 p{
    font-size: 30px;
 }
 
 .slide {
    position   : relative;
-   overflow   : hidden;
-   width      : 600px;
-   height     : 300px;
-   margin     : auto;
-   background : #fff;
+	overflow   : hidden;
+	width      : 700px;
+	height     : 500px;
+	margin     : auto;
+	object-fit: contain;
 }
 .slide img {
-   display    : block;
-   position   : absolute;
-   width      : inherit;
-   height     : inherit;
-   opacity    : 0;
+
+	margin     : auto;
+	position  : absolute;
+	display    : block;
+	height: 500px;
+	width : 700px;
+	object-fit: contain;
    animation  : slideAnime 30s ease infinite;
+    opacity    : 0;
 }
+
 
 .slide img:nth-of-type(1) { animation-delay: 0s }
 .slide img:nth-of-type(2) { animation-delay: 3s }

@@ -23,7 +23,7 @@
           <c:forEach items="${memberlist}" var="member">
 <table border="1" class="table">
         <tr>
-          <td class="a"><img src=${fn:escapeXml(member.profile_photo)}></td>
+          <td class="a"><img src= ${fn:escapeXml(member.profile_photo)}></td>
           <td  class="b">
           背番号：${fn:escapeXml(member.back_number)}<br>
            名前： ${fn:escapeXml(member.name)}<br>
@@ -31,12 +31,13 @@
           投打：${fn:escapeXml(member.dominant_hand)}<br>
           ひとこと：${fn:escapeXml(member.comment)}<br>
           <form:form action="new_member" modelAttribute="view">
+          <form:input path="id" type="hidden" name="abc" value="${fn:escapeXml(member.id)}"/>
           <form:input path="name" type="hidden" name="abc" value="${fn:escapeXml(member.name)}"/>
           <form:input path="back_number" type="hidden" name="abc" value="${fn:escapeXml(member.back_number)}"/>
           <form:input path="position" type="hidden" name="abc" value="${fn:escapeXml(member.position)}"/>
           <form:input path="hand" type="hidden" name="abc" value="${fn:escapeXml(member.dominant_hand)}"/>
           <form:input path="comment" type="hidden" name="abc" value="${fn:escapeXml(member.comment)}"/>
-			<form:button name="insert">変更する</form:button>
+			<form:button name="update">変更する</form:button>
 			<form:button name="delete" onclick="return confirm('${fn:escapeXml(member.name)}のデータを全て削除します。よろしいですか？')">削除する</form:button>
 		</form:form>
 		</td>

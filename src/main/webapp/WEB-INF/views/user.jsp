@@ -31,32 +31,38 @@ ID：<form:input path="user_id" />
 				<form:errors path="user_name" cssStyle="color: red" />
 				<br>
 				<form:button name="insert">追加する</form:button>
-				</form:form>
+			</form:form>
 		</dd>
 		<dt>アカウント削除</dt>
 		<dd>
-		現在のアカウント一覧<br>
-		<form:form action="new_user" modelAttribute="view">
-		<c:forEach items="${userlist}" var="user">
-		<label>
-		<input name="album_date" class="check" type="radio"value="${fn:escapeXml(user.user_name)}" />
-		${fn:escapeXml(user.user_name)}</label>
-		<form:input path="user_name" type="hidden" value="${fn:escapeXml(user.user_name)}" />
-		<form:button name="delete" onclick="return confirm('${fn:escapeXml(user.user_name)}のアカウントを削除します。よろしいですか？')">削除する</form:button><br>
-		</c:forEach>
-		</form:form>
+			現在のアカウント一覧<br>
+
+				<c:forEach items="${userlist}" var="user">
+				<form:form action="new_user" modelAttribute="view">
+					<label> <input name="album_date" class="check" type="radio"
+						value="${fn:escapeXml(user.user_name)}" />
+						${fn:escapeXml(user.user_name)}
+					</label>
+					<form:input path="user_name" type="hidden"
+						value="${fn:escapeXml(user.user_name)}" />
+					<form:button name="delete"
+						onclick="return confirm('${fn:escapeXml(user.user_name)}のアカウントを削除します。よろしいですか？')">削除する</form:button>
+					<br>
+					</form:form>
+				</c:forEach>
+
 		</dd>
-		</dl>
-		<c:url value="/login" var="url" />
-		<p>
-			<a href="${url}">編集トップページに戻る</a>
-		</p>
-		<script>
-      $(function(){
-        $("#acMenu dt").on("click",function(){
-          $(this).next().slideToggle();
-        });
-      });
-     </script>
+	</dl>
+	<c:url value="/login" var="url" />
+	<p>
+		<a href="${url}">編集トップページに戻る</a>
+	</p>
+	<script>
+		$(function() {
+			$("#acMenu dt").on("click", function() {
+				$(this).next().slideToggle();
+			});
+		});
+	</script>
 </body>
 </html>

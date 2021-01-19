@@ -1,6 +1,9 @@
 .title{
 text-align: center;
 }
+body{
+	text-align: center;
+}
 #ball{
    flort: left;
    width: 100px;

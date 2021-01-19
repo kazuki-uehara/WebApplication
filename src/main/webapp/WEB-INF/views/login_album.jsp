@@ -22,35 +22,37 @@
 				${fn:escapeXml(match_date.result)}
 				${fn:escapeXml(match_date.opponent_team)}</dt>
 			<dd>
-			<form:form action="new_album" modelAttribute="view"
-							enctype="multipart/form-data">
-				<c:forEach items="${albumlist}" var="album">
-					<c:if test="${match_date.id==album.match_id }">
-
-							<label><input name="album_date" class="check" type="checkbox"
-								value="${fn:escapeXml(album.album_date)}" />
-						<img src=" ${fn:escapeXml(album.album_date)}" class="album"></label>
-					</c:if>
-				</c:forEach>
-				<br>
-				<form:button name="select">選択した画像を削除</form:button>
-				</form:form>
-				<div>
 				<form:form action="new_album" modelAttribute="view"
 					enctype="multipart/form-data">
-					<form:input path="id" type="hidden" name="abc"
-						value="${fn:escapeXml(match_date.id)}" />
-					<form:input path="day" type="hidden" name="abc"
-						value="${fn:escapeXml(match_date.match_day)}" />
-					<form:input path="result" type="hidden" name="abc"
-						value="${fn:escapeXml(match_date.result)}" />
-					<form:input path="opponent_team" type="hidden" name="abc"
-						value="${fn:escapeXml(match_date.opponent_team)}" />
-					<input type="file" name="file" multiple="multiple" accept="image/*" />
-					<form:button name="update">写真を追加する</form:button><br>
-					<form:button name="delete"
-						onclick="return confirm('${fn:escapeXml(match_date.match_day)}のデータを全て削除します。よろしいですか？')">全て削除する</form:button>
+					<c:forEach items="${albumlist}" var="album">
+						<c:if test="${match_date.id==album.match_id }">
+
+							<label><input name="album_date" class="check"
+								type="checkbox" value="${fn:escapeXml(album.album_date)}" /> <img
+								src=" ${fn:escapeXml(album.album_date)}" class="album"></label>
+						</c:if>
+					</c:forEach>
+					<br>
+					<form:button name="select">選択した画像を削除</form:button>
 				</form:form>
+				<div>
+					<form:form action="new_album" modelAttribute="view"
+						enctype="multipart/form-data">
+						<form:input path="id" type="hidden" name="abc"
+							value="${fn:escapeXml(match_date.id)}" />
+						<form:input path="day" type="hidden" name="abc"
+							value="${fn:escapeXml(match_date.match_day)}" />
+						<form:input path="result" type="hidden" name="abc"
+							value="${fn:escapeXml(match_date.result)}" />
+						<form:input path="opponent_team" type="hidden" name="abc"
+							value="${fn:escapeXml(match_date.opponent_team)}" />
+						<input type="file" name="file" multiple="multiple"
+							accept="image/*" />
+						<form:button name="update">写真を追加する</form:button>
+						<br>
+						<form:button name="delete"
+							onclick="return confirm('${fn:escapeXml(match_date.match_day)}のデータを全て削除します。よろしいですか？')">全て削除する</form:button>
+					</form:form>
 				</div>
 			</dd>
 		</c:forEach>
@@ -82,6 +84,25 @@
 		$(function() {
 			$("#nav dt").on("click", function() {
 				$(this).next().slideToggle();
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			$('input[type=file]').change(function() {
+				//サイズ計算
+				var total_size = 0;
+				$('input[type=file]').each(function() {
+					if ($(this).val()) {
+						var file = $(this).prop('files')[0]; // ※1
+						total_size = total_size + file.size;
+					}
+				});
+				//1メガを越えた場合はアラート表示
+				if (1000000 < total_size) {
+					alert('一度にアップできる容量を超えました');
+					$(this).val('');
+				}
 			});
 		});
 	</script>

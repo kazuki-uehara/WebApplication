@@ -64,6 +64,25 @@
 			});
 		});
 	</script>
+	<script>
+		$(function() {
+			$('input[type=file]').change(function() {
+				//サイズ計算
+				var total_size = 0;
+				$('input[type=file]').each(function() {
+					if ($(this).val()) {
+						var file = $(this).prop('files')[0]; // ※1
+						total_size = total_size + file.size;
+					}
+				});
+				//1メガを越えた場合はアラート表示
+				if (1000000 < total_size) {
+					alert('一度にアップできる容量を超えました');
+					$(this).val('');
+				}
+			});
+		});
+	</script>
 
 
 </body>
