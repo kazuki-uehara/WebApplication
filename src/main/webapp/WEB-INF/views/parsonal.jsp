@@ -56,6 +56,11 @@
 					if ($(this).val()) {
 						var file = $(this).prop('files')[0]; // ※1
 						total_size = total_size + file.size;
+						var type = file.type;
+						if (type != 'image/jpeg' && type != 'image/gif' && type != 'image/png' && type != 'application/pdf') {
+							alert('形式が違います。画像を選択してください');
+							$(this).val('');
+						    }
 					}
 				});
 				//1メガを越えた場合はアラート表示

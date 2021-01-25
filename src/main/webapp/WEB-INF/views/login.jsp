@@ -15,14 +15,17 @@
 </head>
 <body>
 	<p>こんにちは${fn:escapeXml(user)}さん</p>
+	<img src="images/ball.png" id="ball">
 	<h>ログインページ</h>
+	<p class="a">${fn:escapeXml(introduction)}</p>
 	<dl id="nav">
 		<dt>トップページ編集</dt>
 		<dd>
 			<form:form action="update" modelAttribute="view">
 				<p>紹介文更新</p>
 				<br>
-				<form:textarea path="introduction" placeholder="新しい紹介文を入力してください"></form:textarea>
+				<form:textarea path="introduction" placeholder="${fn:escapeXml(main)}"></form:textarea>
+				<form:errors path="introduction" cssStyle="color: red" />
 				<br>
 				<form:button name="button">紹介文更新</form:button>
 				<br>
@@ -69,10 +72,16 @@
 			$('input[type=file]').change(function() {
 				//サイズ計算
 				var total_size = 0;
+
 				$('input[type=file]').each(function() {
 					if ($(this).val()) {
 						var file = $(this).prop('files')[0]; // ※1
 						total_size = total_size + file.size;
+						var type = file.type;
+						if (type != 'image/jpeg' && type != 'image/gif' && type != 'image/png' && type != 'application/pdf') {
+							alert('形式が違います。画像を選択してください');
+							$(this).val('');
+						    }
 					}
 				});
 				//1メガを越えた場合はアラート表示
@@ -80,10 +89,11 @@
 					alert('一度にアップできる容量を超えました');
 					$(this).val('');
 				}
+
+
 			});
 		});
 	</script>
-
 
 </body>
 </html>

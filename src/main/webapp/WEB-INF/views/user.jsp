@@ -39,10 +39,7 @@ ID：<form:input path="user_id" />
 
 				<c:forEach items="${userlist}" var="user">
 				<form:form action="new_user" modelAttribute="view">
-					<label> <input name="album_date" class="check" type="radio"
-						value="${fn:escapeXml(user.user_name)}" />
 						${fn:escapeXml(user.user_name)}
-					</label>
 					<form:input path="user_name" type="hidden"
 						value="${fn:escapeXml(user.user_name)}" />
 					<form:button name="delete"

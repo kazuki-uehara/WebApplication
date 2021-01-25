@@ -18,6 +18,10 @@ h{
 p{
 	font-size: 20px;
 }
+.a{
+	font-size: 30px;
+	color: blue;
+}
 #nav dt{
    font-size: 30px;
    display: block;
